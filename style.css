@@ -1,49 +1,48 @@
-body, html {
+body {
   margin: 0;
-  padding: 0;
-  font-family: 'Comic Sans MS', 'Arial', sans-serif;
-  background-color: #ffec99;
-}
-
-.hero {
+  background: #fbd341;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  background: linear-gradient(145deg, #ffe066, #fab005);
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
+  height: 100vh;
 }
 
-.hero-content {
-  background-color: white;
-  border-radius: 20px;
-  padding: 2rem 3rem;
-  box-shadow: 10px 10px 0 #000, -10px -10px 0 #000;
-  border: 3px solid #000;
-  max-width: 600px;
-}
-
-.cta-btn {
-  padding: 10px 20px;
-  font-size: 1.1rem;
-  margin: 10px;
-  cursor: pointer;
-  border: 2px solid #000;
+.container {
+  background: #fffbe9;
+  border: 5px solid #222;
   border-radius: 10px;
-  background-color: #ff6b6b;
-  color: white;
+  padding: 30px 40px;
+  box-shadow: 8px 8px 0 #000;
+  text-align: center;
+  max-width: 400px;
+}
+
+h1 {
+  color: #c0392b;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+button {
+  margin: 10px 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
   font-weight: bold;
-  transition: all 0.2s ease;
+  cursor: pointer;
+  background: #ffec3d;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #000;
 }
 
-.cta-btn:hover {
-  background-color: #fa5252;
-  transform: scale(1.05);
+button:hover {
+  background: #ffe066;
 }
 
-.cta-btn.alt {
-  background-color: white;
-  color: #000;
+#status, #address, #apcBalance {
+  margin-top: 15px;
+  font-size: 0.95em;
+  color: #333;
+  word-break: break-all;
 }
