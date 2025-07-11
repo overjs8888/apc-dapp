@@ -1,48 +1,37 @@
 body {
-  margin: 0;
-  background: #fbd341;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(135deg, #ffe259, #ffa751);
+  font-family: "Comic Sans MS", cursive, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0;
+  color: #333;
 }
 
 .container {
-  background: #fffbe9;
-  border: 5px solid #222;
-  border-radius: 10px;
-  padding: 30px 40px;
-  box-shadow: 8px 8px 0 #000;
+  background: #fff5e1;
+  border: 4px solid #000;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 10px 10px 0px #000;
   text-align: center;
   max-width: 400px;
-}
-
-h1 {
-  color: #c0392b;
-  font-size: 1.8em;
-  margin-bottom: 10px;
+  width: 90%;
 }
 
 button {
-  margin: 10px 5px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
+  background: #ffcd38;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 10px 20px;
   font-weight: bold;
   cursor: pointer;
-  background: #ffec3d;
-  border: 2px solid #000;
-  box-shadow: 2px 2px 0 #000;
+  margin: 10px 5px;
+  transition: transform 0.2s ease;
 }
 
 button:hover {
-  background: #ffe066;
-}
-
-#status, #address, #apcBalance {
-  margin-top: 15px;
-  font-size: 0.95em;
-  color: #333;
-  word-break: break-all;
+  transform: scale(1.05);
+  background-color: #ffe97f;
 }
