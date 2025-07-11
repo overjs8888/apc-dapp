@@ -1,57 +1,51 @@
 body {
+  font-family: 'Comic Neue', Arial, sans-serif;
+  background-color: #ffe066;
   margin: 0;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  background: radial-gradient(circle, #f0e68c, #ffd700);
+  padding: 0;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  text-align: center;
 }
 
 .container {
-  background: white;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 10px 10px 0px #000, -5px -5px 0px #000;
-  border: 3px solid #000;
+  background-color: #fff;
+  border: 5px solid #333;
+  border-radius: 10px;
+  padding: 30px;
   max-width: 400px;
+  box-shadow: 8px 8px 0 #000;
+  animation: float 2s ease-in-out infinite alternate;
 }
 
 h1 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: #d32f2f;
-  text-shadow: 2px 2px 0px #000;
+  color: #c0392b;
+  font-size: 1.8em;
+  margin-bottom: 10px;
 }
 
-p {
-  margin-bottom: 20px;
-  color: #333;
-  font-weight: bold;
-}
-
-.comic-button {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  background-color: #4CAF50;
-  border: 3px solid #000;
-  color: white;
-  padding: 12px 24px;
-  font-size: 16px;
+button {
   margin: 10px;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: 5px 5px 0px #000;
-  transition: all 0.2s ease;
-}
-
-.comic-button:hover {
-  background-color: #388e3c;
-  transform: scale(1.05);
-  box-shadow: 3px 3px 0px #000;
-}
-
-#status, #apcBalance {
+  padding: 10px 20px;
   font-weight: bold;
-  margin-top: 20px;
+  background-color: #f39c12;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-8px);
+  }
 }
