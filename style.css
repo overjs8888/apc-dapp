@@ -1,9 +1,7 @@
 body {
-  font-family: 'Comic Neue', Arial, sans-serif;
-  background-color: #ffe066;
   margin: 0;
-  padding: 0;
-  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(to bottom, #fdf04c, #f8d628);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,41 +9,33 @@ body {
 }
 
 .container {
-  background-color: #fff;
-  border: 5px solid #333;
-  border-radius: 10px;
-  padding: 30px;
+  background-color: white;
+  border: 5px solid black;
+  border-radius: 20px;
+  padding: 30px 40px;
+  text-align: center;
+  box-shadow: 10px 10px 0px #222;
   max-width: 400px;
-  box-shadow: 8px 8px 0 #000;
-  animation: float 2s ease-in-out infinite alternate;
 }
 
 h1 {
-  color: #c0392b;
-  font-size: 1.8em;
-  margin-bottom: 10px;
+  color: #c90000;
+  font-size: 24px;
+  text-shadow: 2px 2px #000;
 }
 
 button {
-  margin: 10px;
-  padding: 10px 20px;
-  font-weight: bold;
-  background-color: #f39c12;
-  border: none;
-  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 10px 5px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: #fff;
   cursor: pointer;
-  transition: transform 0.1s ease;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
 button:hover {
+  background-color: #f3e247;
   transform: scale(1.05);
-}
-
-@keyframes float {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-8px);
-  }
 }
