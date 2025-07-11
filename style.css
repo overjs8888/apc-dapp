@@ -1,41 +1,49 @@
-body {
+body, html {
   margin: 0;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  background: linear-gradient(to bottom, #fdf04c, #f8d628);
+  padding: 0;
+  font-family: 'Comic Sans MS', 'Arial', sans-serif;
+  background-color: #ffec99;
+}
+
+.hero {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-}
-
-.container {
-  background-color: white;
-  border: 5px solid black;
-  border-radius: 20px;
-  padding: 30px 40px;
   text-align: center;
-  box-shadow: 10px 10px 0px #222;
-  max-width: 400px;
+  background: linear-gradient(145deg, #ffe066, #fab005);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
-h1 {
-  color: #c90000;
-  font-size: 24px;
-  text-shadow: 2px 2px #000;
+.hero-content {
+  background-color: white;
+  border-radius: 20px;
+  padding: 2rem 3rem;
+  box-shadow: 10px 10px 0 #000, -10px -10px 0 #000;
+  border: 3px solid #000;
+  max-width: 600px;
 }
 
-button {
-  padding: 10px 15px;
-  margin: 10px 5px;
-  border: 2px solid black;
-  border-radius: 10px;
-  background-color: #fff;
+.cta-btn {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  margin: 10px;
   cursor: pointer;
-  font-size: 14px;
-  transition: all 0.3s ease;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background-color: #ff6b6b;
+  color: white;
+  font-weight: bold;
+  transition: all 0.2s ease;
 }
 
-button:hover {
-  background-color: #f3e247;
+.cta-btn:hover {
+  background-color: #fa5252;
   transform: scale(1.05);
+}
+
+.cta-btn.alt {
+  background-color: white;
+  color: #000;
 }
