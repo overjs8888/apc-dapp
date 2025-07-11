@@ -4,19 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>America Party Coin DApp</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <!-- ⚠️ 務必保留這行 ethers.js -->
   <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h1>🇺🇸 America Party Coin (APC)</h1>
     <p>Connect your wallet to get started</p>
-    <button id="connectWallet">🔗 Connect Wallet</button>
+    <button id="connectWallet">🟠 Connect Wallet</button>
     <button id="disconnectWallet">❌ Disconnect Wallet</button>
     <div id="status"></div>
+    <div id="walletAddress"></div>
     <div id="apcBalance"></div>
   </div>
+  <!-- ⚠️ 請確認這一行載入在最下面 -->
   <script src="script.js"></script>
 </body>
 </html>
