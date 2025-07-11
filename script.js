@@ -1,57 +1,40 @@
-const APC_CONTRACT_ADDRESS = '0x37ea6372a5ba8F6008749df8bf1EEc4d51Fb2D20';
-const APC_ABI = [
-  {
-    constant: true,
-    inputs: [{ name: "_owner", type: "address" }],
-    name: "balanceOf",
-    outputs: [{ name: "balance", type: "uint256" }],
-    type: "function",
-  },
-  {
-    constant: true,
-    inputs: [],
-    name: "decimals",
-    outputs: [{ name: "", type: "uint8" }],
-    type: "function",
-  },
+const connectWalletButton = document.getElementById('connectWallet');
+const disconnectWalletButton = document.getElementById('disconnectWallet');
+const statusDiv = document.getElementById('status');
+const apcBalanceDiv = document.getElementById('apcBalance');
+
+// APC contract address and ABI
+const apcAddress = "0x37ea6372a5ba8F6008749df8bf1EEc4d51Fb2D20";
+const apcABI = [
+  "function balanceOf(address) view returns (uint256)",
+  "function decimals() view returns (uint8)"
 ];
 
-let userAccount;
+let provider;
+let signer;
 
-document.getElementById('connectWallet').onclick = async () => {
-  if (window.ethereum) {
-    try {
-      const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-      userAccount = accounts[0];
-      document.getElementById('status').innerText = 'Connected: ' + userAccount;
-      getAPCBalance(userAccount);
-    } catch (error) {
-      console.error(error);
-      document.getElementById('status').innerText = 'Connection failed';
-    }
+// Connect wallet
+connectWalletButton.onclick = async () => {
+  if (typeof window.ethereum !== 'undefined') {
+    provider = new ethers.providers.Web3Provider(window.ethereum);
+    await provider.send("eth_requestAccounts", []);
+    signer = provider.getSigner();
+    const userAddress = await signer.getAddress();
+    statusDiv.innerText = `Connected: ${userAddress}`;
+
+    const apcContract = new ethers.Contract(apcAddress, apcABI, provider);
+    const rawBalance = await apcContract.balanceOf(userAddress);
+    const decimals = await apcContract.decimals();
+    const formatted = ethers.utils.formatUnits(rawBalance, decimals);
+
+    apcBalanceDiv.innerText = `Your APC Balance: ${formatted}`;
   } else {
-    alert('Please install MetaMask!');
+    statusDiv.innerText = "MetaMask not detected.";
   }
 };
 
-document.getElementById('disconnectWallet').onclick = () => {
-  document.getElementById('status').innerText = 'Disconnected';
-  document.getElementById('apcBalance').innerText = '';
-  alert('Wallet has been disconnected.');
-  document.getElementById('connectWallet').disabled = false;
+// Disconnect wallet (simulated)
+disconnectWalletButton.onclick = () => {
+  statusDiv.innerText = "";
+  apcBalanceDiv.innerText = "";
 };
-
-async function getAPCBalance(account) {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const contract = new ethers.Contract(APC_CONTRACT_ADDRESS, APC_ABI, provider);
-
-  try {
-    const balance = await contract.balanceOf(account);
-    const decimals = await contract.decimals();
-    const formatted = ethers.utils.formatUnits(balance, decimals);
-    document.getElementById('apcBalance').innerText = `APC Balance: ${formatted}`;
-  } catch (err) {
-    console.error(err);
-    document.getElementById('apcBalance').innerText = 'Error fetching balance';
-  }
-}
