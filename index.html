@@ -2,24 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>America Party Coin DApp</title>
-
-  <!-- Ethers.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>APC DApp</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>🇺🇸 America Party Coin (APC)</h1>
-    <p>Connect your wallet to get started</p>
-    <button id="connectWallet">🦊 Connect Wallet</button>
-    <button id="disconnectWallet">❌ Disconnect Wallet</button>
-    <div id="status"></div>
-    <div id="walletAddress"></div>
-    <div id="apcBalance"></div>
-  </div>
+  <header class="hero">
+    <img src="logo.png" alt="APC Logo" class="logo" />
+    <h1>Welcome to America Party Coin</h1>
+    <p class="slogan">Not just a coin — it’s a movement 🇺🇸🚀</p>
+    <button id="connectButton">Connect Wallet</button>
+    <p id="walletAddress" class="wallet-display"></p>
+  </header>
+
+  <main class="content">
+    <section class="about">
+      <h2>What is APC?</h2>
+      <p>America Party Coin (APC) is a community-driven, freedom-loving token on Base chain.</p>
+    </section>
+
+    <section class="features">
+      <div class="card">🔥 AirDrop Quests</div>
+      <div class="card">🎖️ NFT Badge Collection</div>
+      <div class="card">📊 On-chain Rankings</div>
+    </section>
+
+    <section class="socials">
+      <a href="https://twitter.com/APCsince2025" target="_blank">🐦 Follow us on X</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>Base Chain | Contract: 0x37ea...2D20</p>
+    <p>© 2025 America Party Coin. All rights reserved.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
