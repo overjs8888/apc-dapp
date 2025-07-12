@@ -1,39 +1,65 @@
 body {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  background: radial-gradient(circle, #fddb3a, #fdbb2d);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   margin: 0;
-}
-
-.container {
-  background: #fff8e1;
-  border: 5px solid #000;
-  border-radius: 15px;
-  padding: 30px 50px;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  color: #222;
   text-align: center;
-  box-shadow: 8px 8px 0px #222;
 }
-
-h1 {
-  color: #d32f2f;
-  text-shadow: 1px 1px #000;
-}
-
-button {
-  background-color: #1976d2;
+.hero {
+  padding: 40px 20px;
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
   color: white;
-  padding: 10px 15px;
-  margin: 10px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 2px 2px 0px #000;
 }
-
-button:hover {
-  background-color: #1565c0;
+.logo {
+  width: 100px;
+  animation: float 3s ease-in-out infinite;
+}
+.slogan {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.wallet-display {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #eee;
+  white-space: pre-line;
+}
+.content {
+  padding: 30px;
+}
+.about, .features, .socials {
+  margin-bottom: 30px;
+}
+.card {
+  display: inline-block;
+  margin: 10px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+a {
+  display: inline-block;
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #0056b3;
+}
+footer {
+  padding: 20px;
+  background: #eee;
+  font-size: 0.8rem;
+}
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
 }
