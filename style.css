@@ -149,3 +149,49 @@ footer {
   font-size: 2rem;
   margin-bottom: 20px;
 }
+/* 👁️ Fade-in scroll animation */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+.fade-in-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section Styles */
+.swap-section, .countdown-section, .mint-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #111111;
+  margin: 30px 0;
+  border-radius: 12px;
+  border: 1px solid #333;
+}
+
+/* Section Titles */
+.swap-section h2,
+.countdown-section h2,
+.mint-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .tagline {
+    font-size: 1rem;
+  }
+  .btn-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .btn-primary, .btn-secondary {
+    width: 80%;
+    font-size: 1rem;
+  }
+}
