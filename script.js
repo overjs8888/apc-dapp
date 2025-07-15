@@ -12,3 +12,34 @@ document.getElementById('connectBtn').addEventListener('click', async () => {
     alert('MetaMask is not installed. Please install it to connect your wallet.');
   }
 });
+// ⏳ Countdown Timer
+const countdownTarget = new Date("2025-07-20T00:00:00Z"); // 快照時間（可改）
+const countdownEl = document.getElementById('countdown');
+
+function updateCountdown() {
+  const now = new Date();
+  const diff = countdownTarget - now;
+  if (diff <= 0) {
+    countdownEl.innerText = "Snapshot taken!";
+    return;
+  }
+  const hours = Math.floor(diff / 1000 / 60 / 60);
+  const minutes = Math.floor((diff / 1000 / 60) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+  countdownEl.innerText = `${hours}h ${minutes}m ${seconds}s remaining`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// 🛡️ Simulated Mint
+function mintBadge() {
+  const btn = document.querySelector('.mint-section button');
+  const status = document.getElementById('mint-status');
+  btn.disabled = true;
+  btn.innerText = "Minting...";
+  setTimeout(() => {
+    status.innerText = "✅ Mint Successful! Your badge is on-chain.";
+    btn.innerText = "Minted";
+  }, 2000);
+}
