@@ -135,3 +135,17 @@ footer {
     transform: translateY(-20px);
   }
 }
+.swap-section, .countdown-section, .mint-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: rgba(255,255,255,0.05);
+  margin: 30px 0;
+  border-radius: 12px;
+}
+
+.swap-section h2,
+.countdown-section h2,
+.mint-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
