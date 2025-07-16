@@ -2,62 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>America Party Coin (APC)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>APC | America Party Coin</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <header>
-    <img src="logo-apc-transparent.png" alt="APC Logo" class="logo" />
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Swap</a>
-      <a href="#">Mint</a>
-      <a href="#">Tasks</a>
-      <a href="#">Telegram</a>
-      <button id="connectBtn">Connect Wallet</button>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1 class="headline slide-up">🔥 America Party Coin 🔥</h1>
-    <p class="tagline slide-up-delay">The most freedom-fueled memecoin on Base.</p>
-    <div class="btn-group slide-up-delay2">
-      <button class="btn-primary">🚀 Launch Airdrop</button>
-      <button class="btn-secondary">🎯 Join the Movement</button>
+  <div id="animated-bg"></div>
+  <nav>
+    <img src="logo.png" alt="APC Logo" class="logo" />
+    <div class="nav-links">
+      <a href="#mint">Mint</a>
+      <a href="#swap">Swap</a>
+      <a href="#invite">Invite</a>
     </div>
-    <div class="rocket"></div>
+    <button id="connectBtn">Connect Wallet</button>
+  </nav>
+  <header>
+    <h1>This isn't just a token.<br>It's a party.</h1>
+    <div class="cta-buttons">
+      <a href="#mint"><button>Enter Mint</button></a>
+      <a href="#swap"><button>Swap APC</button></a>
+    </div>
+  </header>
+  <section id="mint">
+    <h2>Mint Your APC</h2>
+    <p>(Minting logic here...)</p>
   </section>
-
-  <!-- 🔁 Swap Section -->
-  <section class="swap-section fade-in-up">
-    <h2>Swap APC</h2>
-    <iframe
-      src="https://app.aerodrome.finance/swap?outputCurrency=APC"
-      width="100%"
-      height="400"
-      style="border: none; border-radius: 10px; margin-top: 20px;"
-      allowfullscreen
-    ></iframe>
+  <section id="swap">
+    <h2>Buy APC on Aerodrome</h2>
+    <a href="https://aerodrome.finance/swap?from=0x833589fcd6edb6e08f4c7c32d4f71b54bda02913&to=0x37ea6372a5ba8f6008749df8bf1eec4d51fb2d20&chain0=8453&chain1=8453" target="_blank">
+      <button>Go to Swap</button>
+    </a>
   </section>
-
-  <!-- ⏳ Snapshot Countdown -->
-  <section class="countdown-section fade-in-up">
-    <h2>Next Airdrop Snapshot</h2>
-    <p id="countdown" style="font-size: 1.4rem; font-weight: bold;"></p>
+  <section id="invite">
+    <h2>Invite & Earn</h2>
+    <div id="inviteArea">
+      <p id="inviteMsg">Checking your eligibility...</p>
+      <button id="copyUidBtn" style="display:none;">Copy My Invite Link</button>
+    </div>
   </section>
-
-  <!-- 🛡️ Mint Badge -->
-  <section class="mint-section fade-in-up">
-    <h2>Mint Your APC Badge</h2>
-    <button class="btn-primary" onclick="mintBadge()">Mint Now</button>
-    <p id="mint-status"></p>
-  </section>
-
   <footer>
-    <p>© 2025 America Party Coin | info@apcparty.com | Powered by Base Network</p>
+    <p>APC © 2025 | Contract: 0x37ea...d20</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
