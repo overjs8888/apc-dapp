@@ -1,20 +1,27 @@
+
 let walletAddress = null;
-let hasPurchased = false;
 
 document.getElementById("connectBtn").addEventListener("click", async () => {
-  if (typeof window.ethereum !== 'undefined') {
-    try {
-      await ethereum.request({ method: 'eth_requestAccounts' });
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      walletAddress = await signer.getAddress();
-      document.getElementById("connectBtn").textContent = walletAddress.slice(0,6) + '...' + walletAddress.slice(-4);
-      checkEligibility();
-    } catch (err) {
-      alert('Wallet connection failed');
+  if (typeof window.ethereum === 'undefined') {
+    alert('Please use a supported browser and install MetaMask or another wallet extension.');
+    return;
+  }
+
+  try {
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    if (!accounts || accounts.length === 0) {
+      alert('No account selected. Please try connecting your wallet again.');
+      return;
     }
-  } else {
-    alert('Please install MetaMask');
+
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    walletAddress = await signer.getAddress();
+    document.getElementById("connectBtn").textContent = walletAddress.slice(0,6) + '...' + walletAddress.slice(-4);
+
+    checkEligibility();
+  } catch (err) {
+    alert('Wallet connection failed: ' + err.message);
   }
 });
 
@@ -23,7 +30,7 @@ function checkEligibility() {
   if (ref) {
     let invited = JSON.parse(localStorage.getItem("invitedList") || "{}");
     if (!invited[walletAddress]) {
-      invited[walletAddress] = { uid: ref, amount: 10 + Math.floor(Math.random() * 6) }; // 模擬 10~15 USDC 購買
+      invited[walletAddress] = { uid: ref, amount: 10 + Math.floor(Math.random() * 6) };
       localStorage.setItem("invitedList", JSON.stringify(invited));
 
       let lb = JSON.parse(localStorage.getItem("leaderboard") || "{}");
@@ -36,23 +43,15 @@ function checkEligibility() {
     }
   }
 
-  hasPurchased = Math.random() > 0.3;
-  const inviteMsg = document.getElementById("inviteMsg");
+  const myUid = walletAddress.slice(-6).toUpperCase();
+  const link = window.location.origin + "/?ref=" + myUid;
+  document.getElementById("inviteMsg").innerHTML = "You are eligible to invite! Your UID: <strong>" + myUid + "</strong>";
   const copyBtn = document.getElementById("copyUidBtn");
-
-  if (hasPurchased) {
-    const myUid = walletAddress.slice(-6).toUpperCase();
-    const link = window.location.origin + "/?ref=" + myUid;
-    inviteMsg.innerHTML = "You are eligible to invite! Your UID: <strong>" + myUid + "</strong>";
-    copyBtn.style.display = "inline-block";
-    copyBtn.onclick = () => {
-      navigator.clipboard.writeText(link);
-      copyBtn.textContent = "Copied!";
-    };
-  } else {
-    inviteMsg.textContent = "You must buy ≥ 10 USDC worth of APC to unlock your UID.";
-    copyBtn.style.display = "none";
-  }
+  copyBtn.style.display = "inline-block";
+  copyBtn.onclick = () => {
+    navigator.clipboard.writeText(link);
+    copyBtn.textContent = "Copied!";
+  };
 
   renderLeaderboard();
 }
