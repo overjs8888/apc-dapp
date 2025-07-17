@@ -11,11 +11,12 @@
 <body>
   <div id="animated-bg"></div>
   <nav>
-    <img src="logo-apc-transparent.png" alt="APC Logo" class="logo" />
+    <img src="logo.png" alt="APC Logo" class="logo" />
     <div class="nav-links">
       <a href="#mint">Mint</a>
       <a href="#swap">Swap</a>
       <a href="#invite">Invite</a>
+      <a href="#leaderboard">Leaderboard</a>
     </div>
     <button id="connectBtn">Connect Wallet</button>
   </nav>
@@ -42,6 +43,15 @@
       <p id="inviteMsg">Checking your eligibility...</p>
       <button id="copyUidBtn" style="display:none;">Copy My Invite Link</button>
     </div>
+  </section>
+  <section id="leaderboard">
+    <h2>Leaderboard</h2>
+    <table id="leaderboardTable" border="1" style="margin:auto;color:white;">
+      <thead>
+        <tr><th>Rank</th><th>UID</th><th>Invites</th><th>Reward (USDC)</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </section>
   <footer>
     <p>APC © 2025 | Contract: 0x37ea...d20</p>
